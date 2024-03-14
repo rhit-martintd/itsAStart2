@@ -1,0 +1,100 @@
+{
+  "version": 1.0,
+  "waypoints": [
+    {
+      "anchor": {
+        "x": 0.7547034812379487,
+        "y": 6.70618580673781
+      },
+      "prevControl": null,
+      "nextControl": {
+        "x": 1.751959560257149,
+        "y": 6.937433593177046
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 1.8675834534767664,
+        "y": 7.009698526439307
+      },
+      "prevControl": {
+        "x": 1.3183699606835835,
+        "y": 7.009698526439307
+      },
+      "nextControl": {
+        "x": 1.9398483867390275,
+        "y": 7.009698526439307
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 2.879292519148419,
+        "y": 7.009698526439307
+      },
+      "prevControl": {
+        "x": 3.8042836649053577,
+        "y": 7.053057486396663
+      },
+      "nextControl": {
+        "x": 1.781690457600929,
+        "y": 6.958248429804268
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 0.7547034812379487,
+        "y": 6.70618580673781
+      },
+      "prevControl": {
+        "x": 2.0699252666110968,
+        "y": 7.053057486396663
+      },
+      "nextControl": null,
+      "isLocked": false,
+      "linkedName": null
+    }
+  ],
+  "rotationTargets": [
+    {
+      "waypointRelativePos": 2.0,
+      "rotationDegrees": 167.7352262721076,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": -178.45184230102208,
+      "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 2,
+      "rotationDegrees": 180.0,
+      "rotateFast": false
+    }
+  ],
+  "constraintZones": [],
+  "eventMarkers": [],
+  "globalConstraints": {
+    "maxVelocity": 3.0,
+    "maxAcceleration": 3.0,
+    "maxAngularVelocity": 540.0,
+    "maxAngularAcceleration": 720.0
+  },
+  "goalEndState": {
+    "velocity": 0,
+    "rotation": -117.8240963842533,
+    "rotateFast": false
+  },
+  "reversed": false,
+  "folder": null,
+  "previewStartingState": {
+    "rotation": -119.35775354279127,
+    "velocity": 0
+  },
+  "useDefaultConstraints": true
+}
