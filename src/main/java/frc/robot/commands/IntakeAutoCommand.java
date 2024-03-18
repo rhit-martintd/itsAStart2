@@ -49,7 +49,7 @@ public class IntakeAutoCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if(timer.get() >= 3) {
+    if(timer.get() >= 4.25) {
       return true;
     } else {
       return false;

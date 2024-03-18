@@ -37,10 +37,11 @@ public class ShootAutoCommand extends Command {
   @Override
   public void execute() {
     this.shooterCommand.shooterOn();
-    if(this.timer.get()>=1.5) {
+    if(this.timer.get()>=.25) {
       this.interwheelCommand.wheelOn();
+      }
     }
-  }
+  
 
   // Called once the command ends or is interrupted.
   @Override

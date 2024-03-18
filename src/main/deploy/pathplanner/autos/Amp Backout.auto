@@ -2,30 +2,30 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.35,
-      "y": 5.53
+      "x": 0.8099299203965142,
+      "y": 6.681985456994171
     },
-    "rotation": 180.0
+    "rotation": -121.60750224624894
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "2.2.0"
+            "name": "Shoot Piece"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "0.2.4"
+            "pathName": "Amp Backout"
           }
         }
       ]
     }
   },
-  "folder": "Previous Auto",
+  "folder": null,
   "choreoAuto": false
 }

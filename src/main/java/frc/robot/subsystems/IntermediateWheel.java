@@ -17,7 +17,7 @@ public class IntermediateWheel extends SubsystemBase {
     // This method will be called once per scheduler run
   }
   public void wheelOn(){
-    greenWheel.set(.7);
+    greenWheel.set(.5);
   }
   public void wheelOff(){
     greenWheel.set(0);

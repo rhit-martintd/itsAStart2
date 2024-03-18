@@ -2,24 +2,24 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.69,
-      "y": 4.38
+      "x": 0.7805585557503859,
+      "y": 6.681985456994171
     },
-    "rotation": 120.0
+    "rotation": -117.47443162627717
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "1.1.0"
+            "name": "Shoot Piece"
           }
         }
       ]
     }
   },
-  "folder": "Previous Auto",
+  "folder": null,
   "choreoAuto": false
 }

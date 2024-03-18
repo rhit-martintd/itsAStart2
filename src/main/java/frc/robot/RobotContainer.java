@@ -62,7 +62,7 @@ public class RobotContainer {
     private final JoystickButton intake = new JoystickButton(operator, XboxController.Button.kX.value);
     private final JoystickButton climberUp = new JoystickButton(operator, XboxController.Button.kA.value);
     private final JoystickButton climberDown = new JoystickButton(operator, XboxController.Button.kB.value);
-    private final JoystickButton shootAmp = new JoystickButton(operator, XboxController.Button.kLeftBumper.value);
+    // private final JoystickButton shootAmp = new JoystickButton(operator, XboxController.Button.kY.value);
     // private final POVButton toggleAutoSubsystems = new POVButton(operator, 0);
     // private final POVButton operatorNinety = new POVButton(operator, 90);
     // private final POVButton operatorOneEighty = new POVButton(operator, 180);
@@ -117,9 +117,9 @@ public class RobotContainer {
         swerve.setDefaultCommand(
                 new TeleopSwerve(
                         swerve,
-                        () -> driver.getRawAxis(translationAxis)*.8,
-                        () -> driver.getRawAxis(strafeAxis)*.8,
-                        () -> -driver.getRawAxis(rotationAxis)*.8,
+                        () -> -driver.getRawAxis(translationAxis)*.95,
+                        () -> -driver.getRawAxis(strafeAxis)*.95,
+                        () -> -driver.getRawAxis(rotationAxis)*.95,
                         robotCentric
                 )
         );
@@ -148,7 +148,7 @@ public class RobotContainer {
     public void registerAutoCommands() {
         NamedCommands.registerCommand("Shoot Piece", new ShootAutoCommand(m_shoot, m_intermid, 1));
         NamedCommands.registerCommand("Intake Piece", new IntakeAutoCommand(m_intake, m_intermid));
-        NamedCommands.registerCommand("Shoot Piece 3", new ShootAutoCommand(m_shoot, m_intermid, 3));
+        NamedCommands.registerCommand("Shoot Piece 3", new ShootAutoCommand(m_shoot, m_intermid, 1));
         
        
     }
@@ -167,7 +167,7 @@ public class RobotContainer {
     private void configureButtonBindings() {
         /* Driver Buttons */
 
-
+        // shootAmp.whileTrue(new ShootAmp(m_shoot, m_intermid));
         outtakeButton.whileTrue(new ShootCommand(m_shoot, m_intermid));
         intake.whileTrue(new IntakeCommand(m_intake, m_intermid));
         reverseButton.whileTrue(new InstantCommand(m_intake::intakeReverse)).onFalse(new InstantCommand(m_intake::intakeOff));
@@ -238,7 +238,7 @@ public class RobotContainer {
 
     public Command getAutonomousCommand() {
         // TODO: work on paths
-        //swerve.gyro.setYaw(90)
+        // swerve.gyro.setYaw(-119);
         // swerve.zeroGyro();
         return chooser.getSelected();
         // return auto;

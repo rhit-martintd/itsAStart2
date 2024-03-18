@@ -2,30 +2,30 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.69,
-      "y": 4.38
+      "x": 0.8099299203965142,
+      "y": 4.435076061565361
     },
-    "rotation": 120.0
+    "rotation": 121.86597769360368
   },
   "command": {
     "type": "sequential",
     "data": {
       "commands": [
         {
-          "type": "path",
+          "type": "named",
           "data": {
-            "pathName": "1.1.0"
+            "name": "Shoot Piece"
           }
         },
         {
           "type": "path",
           "data": {
-            "pathName": "0.1.1"
+            "pathName": "Source Backout"
           }
         }
       ]
     }
   },
-  "folder": "Previous Auto",
+  "folder": null,
   "choreoAuto": false
 }
