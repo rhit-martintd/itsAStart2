@@ -3,41 +3,41 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 0.7547034812379487,
-        "y": 6.70618580673781
+        "x": 0.765872873427322,
+        "y": 4.317590602980848
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.751959560257149,
-        "y": 6.937433593177046
+        "x": 3.9526659375322337,
+        "y": 2.3350234893671944
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 2.734762652623897,
-        "y": 6.937433593177046
+        "x": 8.387741999097594,
+        "y": 1.174854585845129
       },
       "prevControl": {
-        "x": 2.185549159830715,
-        "y": 6.937433593177046
+        "x": 7.136433957919191,
+        "y": 1.659921638772955
       },
       "nextControl": {
-        "x": 3.2839761454170793,
-        "y": 6.937433593177046
+        "x": 9.129940283029576,
+        "y": 0.8871429094013841
       },
       "isLocked": false,
       "linkedName": null
     },
     {
       "anchor": {
-        "x": 0.8414214011526617,
-        "y": 6.677279833432906
+        "x": 0.8539869673657066,
+        "y": 4.346961967626977
       },
       "prevControl": {
-        "x": 1.3111434673573559,
-        "y": 7.240946312878542
+        "x": 4.26106526631658,
+        "y": 2.3937662186594504
       },
       "nextControl": null,
       "isLocked": false,
@@ -46,9 +46,19 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 1,
-      "rotationDegrees": 173.29016319224317,
+      "waypointRelativePos": 1.45,
+      "rotationDegrees": 156.46643129525273,
       "rotateFast": false
+    },
+    {
+      "waypointRelativePos": 0.55,
+      "rotationDegrees": 157.15138550213896,
+      "rotateFast": true
+    },
+    {
+      "waypointRelativePos": 1.8,
+      "rotationDegrees": 130.83452917785965,
+      "rotateFast": true
     }
   ],
   "constraintZones": [],
@@ -61,13 +71,13 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -120.25643716352923,
+    "rotation": 126.15818543980836,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Source Paths",
   "previewStartingState": {
-    "rotation": -119.35775354279127,
+    "rotation": 105.70863782901576,
     "velocity": 0
   },
   "useDefaultConstraints": true

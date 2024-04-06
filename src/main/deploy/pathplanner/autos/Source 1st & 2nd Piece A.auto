@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 0.7952442380734501,
-      "y": 6.740728186286426
+      "x": 0.8099299203965142,
+      "y": 4.435076061565361
     },
-    "rotation": -118.61045966596527
+    "rotation": 121.86597769360368
   },
   "command": {
     "type": "sequential",
@@ -24,13 +24,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Source Path"
+                  "pathName": "Source 1st & 2nd Piece A"
                 }
               },
               {
                 "type": "wait",
                 "data": {
-                  "waitTime": 1.0
+                  "waitTime": 3.0
                 }
               },
               {
@@ -51,6 +51,6 @@
       ]
     }
   },
-  "folder": null,
+  "folder": "Source",
   "choreoAuto": false
 }

@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.3363329583802028,
-      "y": 5.541275082550166
+      "x": 0.8099299203965142,
+      "y": 6.681985456994171
     },
-    "rotation": 180.0
+    "rotation": -121.60750224624894
   },
   "command": {
     "type": "sequential",
@@ -24,7 +24,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Center Middle"
+                  "pathName": "Amp 1st & 2nd Piece"
+                }
+              },
+              {
+                "type": "wait",
+                "data": {
+                  "waitTime": 4.0
                 }
               },
               {
@@ -37,20 +43,14 @@
           }
         },
         {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
-          }
-        },
-        {
           "type": "named",
           "data": {
-            "name": "Shoot Piece 3"
+            "name": "Shoot Piece"
           }
         }
       ]
     }
   },
-  "folder": "Center",
+  "folder": "Amp",
   "choreoAuto": false
 }

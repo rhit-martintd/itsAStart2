@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Climber extends SubsystemBase {
   /** Creates a new Climber. */
   public Climber() {}
-private final PWMVictorSPX climberMotor = new PWMVictorSPX(0);
+  private final PWMVictorSPX climberMotor = new PWMVictorSPX(0);
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

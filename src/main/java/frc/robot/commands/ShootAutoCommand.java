@@ -37,7 +37,7 @@ public class ShootAutoCommand extends Command {
   @Override
   public void execute() {
     this.shooterCommand.shooterOn();
-    if(this.timer.get()>=.25) {
+    if(this.timer.get()>=.2) {
       this.interwheelCommand.wheelOn();
       }
     }

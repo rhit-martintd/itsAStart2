@@ -11,7 +11,7 @@ public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
   public Intake() {}
   private final PWMVictorSPX frontMotor = new PWMVictorSPX(4);
- private final PWMVictorSPX greenMotor = new PWMVictorSPX(2);
+  private final PWMVictorSPX greenMotor = new PWMVictorSPX(2);
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

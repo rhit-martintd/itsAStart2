@@ -146,7 +146,13 @@ public class SwerveModule {
     }
 
     // everything below here is fine.
+    public void setMotor(double voltage) {
+        driveMotor.setVoltage(voltage);
+    }
 
+    public CANSparkMax getMotor(SwerveModule mod) {
+        return mod.driveMotor;
+    }
     public SwerveModuleState getState(){
         return new SwerveModuleState(
                 driveEncoder.getVelocity(),

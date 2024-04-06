@@ -3,50 +3,50 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.3496605095062044,
-        "y": 5.533495729028495
+        "x": 15.759954525275777,
+        "y": 6.7994709155786826
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.055859533015363,
-        "y": 5.504931843197021
+        "x": 15.569040655075943,
+        "y": 7.137241609009157
       },
       "isLocked": false,
-      "linkedName": "2.0.0"
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 3.2,
-        "y": 5.53
+        "x": 15.745268842952711,
+        "y": 7.137241609009157
       },
       "prevControl": {
-        "x": 2.3990235091581296,
-        "y": 5.514738214846801
+        "x": 15.67184043133739,
+        "y": 6.931642056486259
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "0.2.0"
+      "linkedName": null
     }
   ],
   "rotationTargets": [],
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
-    "maxAngularVelocity": 540.0,
+    "maxVelocity": 4.0,
+    "maxAcceleration": 4.1,
+    "maxAngularVelocity": 572.0,
     "maxAngularAcceleration": 720.0
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 180.0,
+    "rotation": -178.3634229583832,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Red Amp Paths",
   "previewStartingState": {
-    "rotation": 180.0,
+    "rotation": 113.62937773065687,
     "velocity": 0
   },
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }

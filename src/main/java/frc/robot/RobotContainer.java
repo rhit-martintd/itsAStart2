@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
@@ -69,7 +70,10 @@ public class RobotContainer {
     // private final POVButton operatorTwoSeventy = new POVButton(operator, 270);
 
     /* Driver Buttons */
-
+    private final JoystickButton driverA = new JoystickButton(driver, XboxController.Button.kA.value);
+    private final JoystickButton driverB = new JoystickButton(driver, XboxController.Button.kB.value);
+    private final JoystickButton driverRightBump = new JoystickButton(driver, XboxController.Button.kRightBumper.value);
+    private final JoystickButton driverLeftBump = new JoystickButton(driver, XboxController.Button.kLeftBumper.value);
     // private final JoystickButton driverA = new JoystickButton(driver, XboxController.Button.kA.value);
     private final JoystickButton robotCentric = new JoystickButton(driver, XboxController.Button.kB.value);
     // private final JoystickButton outtakeButtonDriver = new JoystickButton(driver, XboxController.Button.kX.value);
@@ -141,18 +145,23 @@ public class RobotContainer {
        
     }
 
+
+
+
     public void periodic() {
         eventLoop.poll();
     }
 
     public void registerAutoCommands() {
         NamedCommands.registerCommand("Shoot Piece", new ShootAutoCommand(m_shoot, m_intermid, 1));
-        NamedCommands.registerCommand("Intake Piece", new IntakeAutoCommand(m_intake, m_intermid));
+        NamedCommands.registerCommand("Intake Piece 1", new IntakeAutoCommand(m_intake, m_intermid, 1));
+        NamedCommands.registerCommand("Intake Piece 2", new IntakeAutoCommand(m_intake, m_intermid, 2));
+        NamedCommands.registerCommand("Intake Piece 3", new IntakeAutoCommand(m_intake, m_intermid, 3));
+        NamedCommands.registerCommand("Intake Piece", new IntakeAutoCommand(m_intake, m_intermid, 3.5));
         NamedCommands.registerCommand("Shoot Piece 3", new ShootAutoCommand(m_shoot, m_intermid, 1));
         
        
     }
-
 
 
     /**
@@ -183,6 +192,10 @@ public class RobotContainer {
         // shootAmp.onTrue(new InstantCommand(m_shoot::shooterAmp)).onFalse(new InstantCommand(m_shoot::shooterOff));
 
         //operatorNinety.whileTrue(new AutoShooter(shooter));
+        driverA.whileTrue(swerve.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
+        driverB.whileTrue(swerve.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
+        driverRightBump.whileTrue(swerve.sysIdDynamic(SysIdRoutine.Direction.kForward));
+        driverLeftBump.whileTrue(swerve.sysIdDynamic(SysIdRoutine.Direction.kReverse));
 
 
         //  BooleanEvent revShooterPressed = operator.axisGreaterThan(revShooter, Constants.TRIGGER_DEADBAND, eventLoop);
@@ -217,6 +230,10 @@ public class RobotContainer {
         // robot position
         SmartDashboard.putString("Robot Pose2d", swerve.getPose().getTranslation().toString());
         SmartDashboard.putNumber("Robot Yaw", swerve.getYaw());
+        SmartDashboard.putNumber("Mod 1 Distance", swerve.distanceMod1());
+        SmartDashboard.putNumber("Mod 2 Distance", swerve.distanceMod2());
+        SmartDashboard.putNumber("Mod 3 Distance", swerve.distanceMod3());
+        SmartDashboard.putNumber("Mod 4 Distance", swerve.distanceMod4());
         // SmartDashboard.putNumber("Robot Pitch", swerve.getPitch());
         // SmartDashboard.putNumber("Robot Roll", swerve.getRoll());
     }

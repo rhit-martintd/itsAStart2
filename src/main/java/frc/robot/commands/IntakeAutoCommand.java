@@ -13,14 +13,17 @@ public class IntakeAutoCommand extends Command {
   private Intake intakeCommand;
   private IntermediateWheel interwheelCommand;
   private Timer timer;
+  private double timerValue;
   /** Creates a new IntakeCommand. */
-  public IntakeAutoCommand(Intake intake, IntermediateWheel interwheel) {
+  public IntakeAutoCommand(Intake intake, IntermediateWheel interwheel, double timerValue) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(intake);
     addRequirements(interwheel);
+    this.timerValue = timerValue;
     this.intakeCommand = intake;
     this.interwheelCommand = interwheel;
     timer = new Timer();
+
   }
 
   // Called when the command is initially scheduled.
@@ -49,7 +52,7 @@ public class IntakeAutoCommand extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if(timer.get() >= 4.25) {
+    if(timer.get() >= this.timerValue) {
       return true;
     } else {
       return false;

@@ -1,0 +1,49 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 15.686526113660456,
+      "y": 6.681985456994171
+    },
+    "rotation": 120.96375653207356
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "named",
+          "data": {
+            "name": "Shoot Piece"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Red Amp Path"
+          }
+        },
+        {
+          "type": "wait",
+          "data": {
+            "waitTime": 10.0
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "Red Amp Backout Path"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "Intake Piece 3"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Red Amp",
+  "choreoAuto": false
+}

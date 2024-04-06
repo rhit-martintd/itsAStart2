@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.3216735004898588,
-        "y": 5.55593454044051
+        "x": 1.5295283542266556,
+        "y": 5.639302012056618
       },
       "prevControl": null,
       "nextControl": {
-        "x": 2.2433611064405232,
-        "y": 5.622211807803898
+        "x": 2.45121596017732,
+        "y": 5.7055792794200055
       },
       "isLocked": false,
       "linkedName": "StartCenter"
@@ -32,44 +32,44 @@
     },
     {
       "anchor": {
-        "x": 1.3216735004898588,
-        "y": 5.55593454044051
+        "x": 1.5295283542266556,
+        "y": 5.639302012056618
       },
       "prevControl": {
-        "x": 1.3039169740311314,
-        "y": 6.879621646567237
+        "x": 1.5117718277679282,
+        "y": 6.962989118183345
       },
       "nextControl": {
-        "x": 1.328399104976579,
-        "y": 5.0545641873665215
+        "x": 1.5362539587133759,
+        "y": 5.137931658982629
       },
       "isLocked": false,
       "linkedName": "StartCenter"
     },
     {
       "anchor": {
-        "x": 2.575779799446923,
-        "y": 4.075742235991514
+        "x": 2.748439987040977,
+        "y": 4.126676732781015
       },
       "prevControl": {
-        "x": 2.39143802303239,
-        "y": 4.464573915619385
+        "x": 2.564098210626444,
+        "y": 4.515508412408886
       },
       "nextControl": {
-        "x": 2.760121575861456,
-        "y": 3.6869105563636433
+        "x": 2.93278176345551,
+        "y": 3.737845053153144
       },
       "isLocked": false,
       "linkedName": "SourceNoteClose"
     },
     {
       "anchor": {
-        "x": 1.3216735004898588,
-        "y": 5.55593454044051
+        "x": 1.5295283542266556,
+        "y": 5.639302012056618
       },
       "prevControl": {
-        "x": 1.4773528138605576,
-        "y": 4.942921435138645
+        "x": 1.6852076675973544,
+        "y": 5.026288906754753
       },
       "nextControl": null,
       "isLocked": false,
@@ -91,9 +91,9 @@
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
-    "maxAngularVelocity": 540.0,
+    "maxVelocity": 4.0,
+    "maxAcceleration": 4.1,
+    "maxAngularVelocity": 572.0,
     "maxAngularAcceleration": 720.0
   },
   "goalEndState": {
@@ -102,7 +102,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": null,
+  "folder": "Center Paths",
   "previewStartingState": {
     "rotation": 179.07376880047082,
     "velocity": 0

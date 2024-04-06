@@ -14,24 +14,45 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.*;
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 import frc.robot.Constants;
+import static edu.wpi.first.units.MutableMeasure.mutable;
+import static edu.wpi.first.units.Units.Meters;
+import static edu.wpi.first.units.Units.MetersPerSecond;
+import static edu.wpi.first.units.Units.Volts;
+
+import edu.wpi.first.units.Distance;
+import edu.wpi.first.units.Measure;
+import edu.wpi.first.units.MutableMeasure;
+import edu.wpi.first.units.Velocity;
+import edu.wpi.first.units.Voltage;
 
 public class Swerve extends SubsystemBase {
     private final SwerveDriveOdometry swerveOdometry;
     private final SwerveModule[] swerveMods;
     public final Pigeon2 gyro;
     final Field2d field = new Field2d();
-
+    private final SysIdRoutine m_sysIdRoutine;
+     // Mutable holder for unit-safe voltage values, persisted to avoid reallocation.
+     private final MutableMeasure<Voltage> m_appliedVoltage = mutable(Volts.of(0));
+     // Mutable holder for unit-safe linear distance values, persisted to avoid reallocation.
+     private final MutableMeasure<Distance> m_distance = mutable(Meters.of(0));
+     // Mutable holder for unit-safe linear velocity values, persisted to avoid reallocation.
+     private final MutableMeasure<Velocity<Distance>> m_velocity = mutable(MetersPerSecond.of(0));
+ 
     // public ADXRS450_Gyro gyro;
 
     public Swerve() {
         gyro = new Pigeon2(Constants.Swerve.PIGEON_ID);
         gyro.getConfigurator().apply(new Pigeon2Configuration());
         zeroGyro();
+        
         // gyro = new ADXRS450_Gyro();
         // gyro.calibrate(); 
 
@@ -86,7 +107,7 @@ public class Swerve extends SubsystemBase {
                                 Constants.Auto.AUTO_ANGLE_I,
                                 Constants.Auto.AUTO_ANGLE_D
                         ),
-                        Constants.Swerve.MAX_SPEED - 2, // Max module speed, in m/s
+                        Constants.Swerve.MAX_SPEED -1, // Max module speed, in m/s
                         Constants.Swerve.CENTER_TO_WHEEL, // Drive base radius in meters. Distance from robot center to
                                                           // furthest module.
                         new ReplanningConfig(true, true) // Default path replanning config. See the API for the options here
@@ -103,7 +124,60 @@ public class Swerve extends SubsystemBase {
                   },
                   this // Reference to this subsystem to set requirements
         );
+        m_sysIdRoutine =
+        new SysIdRoutine(
+            // Empty config defaults to 1 volt/second ramp rate and 7 volt step voltage.
+            new SysIdRoutine.Config(),
+            new SysIdRoutine.Mechanism(
+                // Tell SysId how to plumb the driving voltage to the motors.
+                (Measure<Voltage> volts) -> {
+                    for (SwerveModule mod : swerveMods) {
+                        mod.setMotor(volts.in(Volts));
+                    }
+                },
+                // Tell SysId how to record a frame of data for each motor on the mechanism being
+                // characterized.
+                log -> {
+                    // Record a frame for the left motors.  Since these share an encoder, we consider
+                    // the entire group to be one motor.
+                    log.motor("front-left?")
+                        .voltage(
+                            m_appliedVoltage.mut_replace(
+                                swerveMods[2].getMotor(swerveMods[2]).getAppliedOutput()*swerveMods[2].getMotor(swerveMods[2]).getBusVoltage(), Volts))
+                        .linearPosition(m_distance.mut_replace(swerveMods[2].getPosition().distanceMeters, Meters))
+                        .linearVelocity(
+                            m_velocity.mut_replace(swerveMods[2].getMotor(swerveMods[2]).getEncoder().getVelocity(), MetersPerSecond));
+
+                  
+                    log.motor("front-right?")
+                        .voltage(
+                            m_appliedVoltage.mut_replace(
+                               swerveMods[3].getMotor(swerveMods[3]).getAppliedOutput()*swerveMods[3].getMotor(swerveMods[3]).getBusVoltage(), Volts))
+                        .linearPosition(m_distance.mut_replace(swerveMods[3].getPosition().distanceMeters, Meters))
+                        .linearVelocity(
+                            m_velocity.mut_replace(swerveMods[3].getMotor(swerveMods[3]).getEncoder().getVelocity(), MetersPerSecond));
+                    
+                            log.motor("back-left?")
+                        .voltage(
+                            m_appliedVoltage.mut_replace(
+                               swerveMods[0].getMotor(swerveMods[0]).getAppliedOutput()*swerveMods[0].getMotor(swerveMods[0]).getBusVoltage(), Volts))
+                        .linearPosition(m_distance.mut_replace(swerveMods[0].getPosition().distanceMeters, Meters))
+                        .linearVelocity(
+                            m_velocity.mut_replace(swerveMods[0].getMotor(swerveMods[0]).getEncoder().getVelocity(), MetersPerSecond));
+
+                    log.motor("back-right?")
+                        .voltage(
+                            m_appliedVoltage.mut_replace(
+                               swerveMods[1].getMotor(swerveMods[1]).getAppliedOutput()*swerveMods[1].getMotor(swerveMods[1]).getBusVoltage(), Volts))
+                        .linearPosition(m_distance.mut_replace(swerveMods[1].getPosition().distanceMeters, Meters))
+                        .linearVelocity(
+                            m_velocity.mut_replace(swerveMods[1].getMotor(swerveMods[1]).getEncoder().getVelocity(), MetersPerSecond));
+                },
+                // Tell SysId to make generated commands require this subsystem, suffix test state in
+                // WPILog with this subsystem's name ("drive")
+                this));
     }
+    
 
     @Override
     public void periodic() {
@@ -176,6 +250,34 @@ public class Swerve extends SubsystemBase {
         return positions;
     }
 
+        public double distanceMod1(){
+            SwerveModule mod1 =
+        swerveMods[0];
+            return
+        mod1.getPosition().distanceMeters;
+    }
+
+            public double distanceMod2(){
+            SwerveModule mod2 =
+        swerveMods[0];
+            return
+        mod2.getPosition().distanceMeters;
+    }
+
+            public double distanceMod3(){
+            SwerveModule mod3 =
+        swerveMods[0];
+            return
+        mod3.getPosition().distanceMeters;
+    }
+
+            public double distanceMod4(){
+            SwerveModule mod4 =
+        swerveMods[0];
+            return
+        mod4.getPosition().distanceMeters;
+    }
+
     // TODO: FIX SWERVE SCUFFEDNESS
     public void zeroGyro() {
         gyro.reset();
@@ -190,7 +292,7 @@ public class Swerve extends SubsystemBase {
     }
 
     public void setModuleStates(SwerveModuleState[] desiredStates) {
-        setModuleStates(desiredStates, true);
+        setModuleStates(desiredStates, false);
     }
 
     public void resetOdometry(Pose2d pose) {
@@ -206,4 +308,16 @@ public class Swerve extends SubsystemBase {
     public void setgyro(){
         //fill later
     }
+     public Command sysIdQuasistatic(SysIdRoutine.Direction direction) {
+    return m_sysIdRoutine.quasistatic(direction);
+  }
+
+  /**
+   * Returns a command that will execute a dynamic test in the given direction.
+   *
+   * @param direction The direction (forward or reverse) to run the test in
+   */
+  public Command sysIdDynamic(SysIdRoutine.Direction direction) {
+    return m_sysIdRoutine.dynamic(direction);
+  }
 }
