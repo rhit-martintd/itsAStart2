@@ -46,8 +46,8 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0.85,
-      "rotationDegrees": -45.64591488393217,
+      "waypointRelativePos": 0.4,
+      "rotationDegrees": 132.78110991592055,
       "rotateFast": true
     }
   ],
@@ -65,7 +65,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Red Center",
+  "folder": null,
   "previewStartingState": {
     "rotation": 179.91173084601277,
     "velocity": 0

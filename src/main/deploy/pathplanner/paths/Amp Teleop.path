@@ -49,7 +49,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Amp Paths",
+  "folder": null,
   "previewStartingState": {
     "rotation": -121.50426671920428,
     "velocity": 0

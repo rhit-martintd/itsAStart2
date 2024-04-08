@@ -17,15 +17,15 @@
     {
       "anchor": {
         "x": 2.890235494756704,
-        "y": 5.52661562465982
+        "y": 5.55
       },
       "prevControl": {
         "x": 2.607336798388213,
-        "y": 5.52661562465982
+        "y": 5.55
       },
       "nextControl": {
         "x": 3.1731341911251953,
-        "y": 5.52661562465982
+        "y": 5.55
       },
       "isLocked": false,
       "linkedName": "CenterNoteClose"
@@ -59,7 +59,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Center Paths",
+  "folder": null,
   "previewStartingState": {
     "rotation": 177.91743472026906,
     "velocity": 0

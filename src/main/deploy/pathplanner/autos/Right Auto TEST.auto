@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.3363329583802028,
-      "y": 5.541275082550166
+      "x": 0.765872873427322,
+      "y": 4.4600922416554205
     },
-    "rotation": 180.0
+    "rotation": 118.23527901520929
   },
   "command": {
     "type": "sequential",
@@ -22,35 +22,23 @@
           "data": {
             "commands": [
               {
-                "type": "path",
-                "data": {
-                  "pathName": "Center Middle 2 Shoot"
-                }
-              },
-              {
                 "type": "named",
                 "data": {
                   "name": "Intake Piece"
                 }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Copy of Right Path"
+                }
               }
             ]
-          }
-        },
-        {
-          "type": "wait",
-          "data": {
-            "waitTime": 2.0
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "Shoot Piece 3"
           }
         }
       ]
     }
   },
-  "folder": "Center",
+  "folder": null,
   "choreoAuto": false
 }

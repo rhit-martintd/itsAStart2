@@ -75,7 +75,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Red Center",
+  "folder": null,
   "previewStartingState": {
     "rotation": 180.0,
     "velocity": 0

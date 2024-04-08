@@ -49,7 +49,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Red Source ",
+  "folder": null,
   "previewStartingState": {
     "rotation": -117.55281157671769,
     "velocity": 0

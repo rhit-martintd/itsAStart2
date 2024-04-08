@@ -192,10 +192,10 @@ public class RobotContainer {
         // shootAmp.onTrue(new InstantCommand(m_shoot::shooterAmp)).onFalse(new InstantCommand(m_shoot::shooterOff));
 
         //operatorNinety.whileTrue(new AutoShooter(shooter));
-        driverA.whileTrue(swerve.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
-        driverB.whileTrue(swerve.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
-        driverRightBump.whileTrue(swerve.sysIdDynamic(SysIdRoutine.Direction.kForward));
-        driverLeftBump.whileTrue(swerve.sysIdDynamic(SysIdRoutine.Direction.kReverse));
+        // driverA.whileTrue(swerve.sysIdQuasistatic(SysIdRoutine.Direction.kForward));
+        // driverB.whileTrue(swerve.sysIdQuasistatic(SysIdRoutine.Direction.kReverse));
+        // driverRightBump.whileTrue(swerve.sysIdDynamic(SysIdRoutine.Direction.kForward));
+        // driverLeftBump.whileTrue(swerve.sysIdDynamic(SysIdRoutine.Direction.kReverse));
 
 
         //  BooleanEvent revShooterPressed = operator.axisGreaterThan(revShooter, Constants.TRIGGER_DEADBAND, eventLoop);

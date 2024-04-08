@@ -19,9 +19,9 @@ public final class Constants {
 
     public static final class Auto {
         //TODO tune
-        public static final double AUTO_DRIVE_P = 4.0;
+        public static final double AUTO_DRIVE_P = 1.1; //4.0 , 1.1
         public static final double AUTO_DRIVE_I = 0.0;
-        public static final double AUTO_DRIVE_D = 0;
+        public static final double AUTO_DRIVE_D = 0.34; //0, 0.34
         public static final double AUTO_ANGLE_P = 2.5;
         public static final double AUTO_ANGLE_I = 0.0;
         public static final double AUTO_ANGLE_D = 0.0;

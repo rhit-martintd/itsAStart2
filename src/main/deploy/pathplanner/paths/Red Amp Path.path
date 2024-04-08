@@ -43,7 +43,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "Red Amp Paths",
+  "folder": null,
   "previewStartingState": {
     "rotation": 113.62937773065687,
     "velocity": 0
